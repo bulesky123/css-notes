@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>浮动遮盖问题</title>
+	<style type="text/css">
+		.container{
+			background:#ccc;
+			height:500px;
+			width:500px;
+		}
+		.son1{
+			background:#090;
+			width:200px;
+			height:300px;
+			float:left;
+		}
+		.son2{
+			background:#909;
+			width:500px;
+			height:300px;
+		}
+		.bfc{
+			/*overflow: auto;*/   
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="son1"></div>
+		<div class="son2 bfc"></div>
+	</div>
+</body>
+</html>

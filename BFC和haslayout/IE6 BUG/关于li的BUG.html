@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		ul{
+			list-style:none;
+			height:400px;
+			width:400px;
+		}
+		li{
+			height:40px;
+			background:#909;
+			vertical-align: top;/*解决方法*/
+
+		}
+		p{
+			float: left;
+		}
+		span{
+			float: right;
+		}
+		/*产生条件：li里的所有子元素都浮动了，而li 没有浮动*/
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<p>军事</p>
+			<span>2015-10-16</span>
+		</li>
+		<li>
+			<p>教育</p>
+			<span>2015-10-12</span>
+		</li>
+		<li>
+			<p>计算机</p>
+			<span>2015-10-14</span>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,26 @@
+1.CSS滤镜是什么?
+  微软为了增强IE的功能，自己加插件模块
+  并不是W3C发布的CSS标准，所以其他浏览器不支持
+
+  IE/6/7/8/9支持   IE10不支持
+  怎么让IE10支持--按照IE9标准进行解释
+
+2.
+从Box角度分类:
+block-level box(块级盒元素):display 属性为 block块, list-item列表, table表格 的元素，会生成 block-level box。并且参与 block fomatting context；
+inline-level box（内联级盒元素）:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context；
+
+
+从元素本身的特点来讲，可以分为替换和不可替换元素。
+替换元素:
+<img>、<input>、<textarea>、<select>、<object>都是替换元素。这些元素往往没有实际的内容，即是一个空元素
+
+非替换元素:大部分元素都是非替换元素
+
+
+
+
+3.盒子的实际宽度=width+padding-left+padding-right+border-left+border-right
+
+
+

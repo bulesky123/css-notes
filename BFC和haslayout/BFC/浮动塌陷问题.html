@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动塌陷</title>
+	<style type="text/css">
+		.father{
+			background:#909;
+			padding:10px;
+			width:100%;
+		}
+		.son{
+			background:#090;
+			width:200px;
+			height:400px;
+			float:left;
+
+		}
+		.bfc{
+			overflow: auto;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="father bfc">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

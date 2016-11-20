@@ -1,0 +1,136 @@
+1、BFC:Block Formatting Context （块格式化上下文）（只对块元素）也就是说只要是触发了它，他就成为一个独立的单位，不会影响其他元素的布局，其他元素也不会影响它的布局。
+
+2、被激活的这个BFC（独立单位）它的布局会遵循以下六个规则（可以类比盒子模型的流式布局，一个盒子挨一个盒子，计算宽度时：按照块级和行内元素的规则）BFC它的规则就是一下这六个：
+——1、BFC内部的盒子（Box）会在垂直方向上，一个接一个的放置
+
+——2、盒子（Box）垂直方向上的距离有margin决定。（注意：这是块元素）属于同一个BFC的两个相邻的盒子（Box）的margin会发生重叠
+
+——3、每隔盒子的左边紧紧贴住包含它的盒子的左边，即使是浮动元素也是如此。
+
+——4、BFC的区域不不会与浮动的盒子重叠
+
+——5、BFC就是页面上一个独立的容器，容器里的子元素不会影响到外面的元素，反之也是如此。
+
+——6、计算BFC的高度时，浮动元素也要参加计算。
+
+3、BFC是一个环境，有些已经默认被激活，而有些默认没被激活，如果我们要利用BFC那么我们就去手动激活它。
+
+4、那么怎样去激活它呢？那些能激活BFC呢？？？
+
+——答：
+	float属性不为none 【会影响祖先元素】 
+
+	position为absolute或fixed 【会影响祖先元素】 
+	display为inline-block, table-cell, table-caption, 
+	flex, inline-flex
+	overflow不为visible, 【建议使用	auto/hidden】
+
+
+5、那BFC能解决那些问题呢？？
+答：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+这几种情况下会发生：
+浮动元素（float: left | right）；
+绝对定位元素（position: absolute | fixed）；
+行内块元素（display: inline-block）；
+overflow:auto | hidden；
+display:table(此元素会作为块级表格来显示（类似 <table>），表格前后带有换行符。)
+
+
+作用：1）阻止父元素坍塌（所有子元素都浮动，父元素会坍塌，触发BFC可以解决）
+    
+     2）由于布局（在布局时，第一个元素做浮动，第二个元素会环绕着它，如果为第二个元素触发BFC则将不会环绕它，以便布局）
+
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		margin:0px;
+		padding:0px;
+	}
+	#son1{	
+	   	width:150px;
+	   	height:50px;
+		background-color:#f00;
+		float:left;	
+	}
+	#son2{
+		width:200px;
+		height:80px;
+		background-color:#0f0;
+		overflow:auto;//触发BFC
+	}
+	</style>
+</head>
+<body>
+<div id="son1">只整合哈哈哈哈哈哈</div>
+<div id="son2">大家好我是哈哈哈哈哈哈哈哈哈你好吗</div>  	
+</body>
+</html>
+（3）阻止父子元素重叠
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#father{
+			background-color:#ff0;
+			width:300px;
+			overflow:auto;	//触发BFC		
+		}
+		#son{
+			background-color:#0f0;
+			margin-top:20px;
+		}
+	</style>
+</head>
+<body>
+<div id="father">
+	<div id="son">网站9班</div>
+</div>	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

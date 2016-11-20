@@ -1,0 +1,28 @@
+一.haslayout是什么？
+ 1.haslayout是ie专属的一个名词，是ie的内部结构的一部分，并且在ie8及以上版本不存在，也就是说它只适用于ie6、ie7.
+ 2.ie6的bug大部分都是由它引起的，只要触发ie的haslayout属性，就可以解决ie6bug.
+ 3.haslayout：是布局的意思.
+
+
+二.如何激发 haslayout？
+
+ 1.height: (任何值除了auto)
+ 2.width: (任何值除了auto)----首选
+ 3.float: (left 或 right)
+ 4.position: absolute
+ 5.display: inline或者block
+ 6.zoom:1; (除 normal 外任意值)/*zoom 总是可以触发 hasLayout*/
+ 
+ 使用 zoom:1; 是因为大多数情况下，它能在不影响现有环境的条件下激发元素的 haslayout。而一旦问题消失，那基本上就可以判断是haslayout 的原因。然后就可以通过设定 相应的 css 属性来对这个问题进行修正了。建议首先要考虑的是设定元素的width/height 属性，其次再考虑其他属性。
+
+
+三.自身内容的元素将默认有一个布局，主要包括以下元素：
+
+    body ,html,table, tr, th, td,img,hr,
+
+    input, button, file, select, textarea
+
+    frameset, frame, iframe
+
+
+

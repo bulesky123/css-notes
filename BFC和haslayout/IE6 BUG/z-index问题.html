@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	.con1{
+		z-index: 3;
+		position: absolute;
+	}
+	.con2{
+		position: absolute;  /*必须的有*/
+		z-index: 4;      /* 解决方法*/
+	}
+	.son1{
+		position: absolute;
+		z-index: 8;
+	}
+	</style>
+</head>
+<body>
+	<div class="con1">
+		<img src="beauty1.jpg" height="123" width="82">
+	</div>
+	<div class="con2">
+		<div class="son1">
+			<img src="2.jpg" height="100" width="200">
+		</div>
+	</div>
+	</body>
+</html>

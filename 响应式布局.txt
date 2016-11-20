@@ -1,0 +1,73 @@
+1、响应式布局：一个网站能够兼容多个终端。
+
+优点：面对不同的分辨率设备灵活性强
+      能够快捷解决多设备显示适应的问题
+
+缺点：兼容各种设备工作量大，效率低下
+      代码累赘，会出现隐藏无用元素，加载时间加长
+
+2、响应式布局的基本实现：
+
+（a）CSS中的Media Query（媒体查询）:
+     设备宽高：device-width    device-height（设备物理宽高）
+     渲染窗口的宽高：width  height(当前展示页面的宽高)
+     设备的手持方向：orientation
+     设备的分辨率：resolution
+
+（b）使用方法：
+     外联
+     内嵌样式
+
+外联：<link href="style.css" type="css/text" rel="stylesheet" media="only screen and (max-width:640px)">
+
+说明：当屏幕宽度小于640px时 才使用这个样式生效。
+
+内嵌：<style>
+        @meida screen and (min-width:640px){
+                body{background:#ff0;}
+              }
+       </style>
+
+说明：当屏幕大于640px 时 就用这个样式
+
+例如：
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		@media screen and (min-width:640px){
+			body{
+				background:#ff0;
+			}
+		}
+	</style>
+</head>
+<body>	
+</body>
+</html>
+
+3、响应式实例：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

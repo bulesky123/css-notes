@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>访问hasLayout属性</title>
+	<style type="text/css">
+		#son1{
+			width:200px;
+		}
+		#p1{
+			width:10px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		function $(_id){
+			var obj=document.getElementById(_id);
+			return obj;
+		}
+		var son1=$("son1");
+		var p1=$("p1");
+		alert(son1.currentStyle.hasLayout);
+		alert(p1.currentStyle.hasLayout);
+	}
+	</script>
+</head>
+<body>
+	<div id="con">
+		<div id="son1"></div>
+		<p id="p1"></p>
+	</div>
+</body>
+</html>

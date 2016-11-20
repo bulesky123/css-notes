@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子元素上下margin溢出问题</title>
+	<style type="text/css">
+		.father{
+			background:#909;
+			/* padding:1px; */  /*不能解决IE6、7*/
+			/* border:1px solid #909; *//*不能解决IE6、7*/
+		}
+		.son{
+			background:#090;
+			margin:50px 0;
+			width:500px;
+			height:500px;
+		}
+		.p1{
+			background:#ff0;
+			height:20px;
+		}
+		.bfc{
+			overflow: auto;
+			zoom:1;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="p1"></div>
+		<div class="father bfc">
+			<div class="son"></div>
+		</div>
+	<div class="p1"></div>
+</body>
+</html>

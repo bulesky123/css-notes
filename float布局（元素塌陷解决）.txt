@@ -1,0 +1,27 @@
+元素塌陷：所有子元素都浮动了，父元素则塌陷了。
+
+解决方法：1）：<div id="tx"></div>
+              #tx{
+		clear:left;
+		}
+          2)overflow:hidden/auto;   激活bfc机制
+	  3）父元素也浮动（不推荐用）
+
+clear:left/right
+
+例如   #son2{
+	clear:left;
+	}
+意思是：son2左边不予许有浮动元素（下来用）
+
+overfloat:hidden
+          auto:溢出后加上滚动条
+          scroll：移除与否都加滚动条
+
+z-index:是必须在设置了position后才会生效。
+
+
+position:
+         absolute：相对于最近的父元素定位
+         relative：相对于自己定位
+         fixed固定定位(相对于浏览器窗口定位)（也会脱离文档流）

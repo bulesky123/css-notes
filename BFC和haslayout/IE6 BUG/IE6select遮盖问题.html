@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	.warp { 
+	position:absolute; 
+	top:10px; 
+	left:26px; 
+	width:200px; 
+	height:200px;
+	background:#FDF3D9; 
+}
+/* .box { 
+	position: absolute;
+	top:0;
+	left:0; 
+	width:200px; 
+	height:200px; 
+	
+	border:1px solid #EEAC53;
+} */
+	</style>
+</head>
+<body>
+	<form>
+		<select>
+			<option value="hz4">北京</option>
+			<option value="hz1">北京</option>
+			<option value="hz2">北京</option>
+			<option value="hz3">北京</option>
+		</select>
+	</form>
+	<div class="warp">
+	<!--[if IE 6.0]>
+  		<iframe frameborder="0"></iframe>
+  	<![endif]-->
+		
+			bug描述：在ieee6下如果div层使用绝对定位或者相对定位，
+			select会出现在div层的上面 遮盖div层<br>
+			解决方法：在div内容中加入iframe标记。详见本页代码。
+		
+	</div>
+</body>
+</html>

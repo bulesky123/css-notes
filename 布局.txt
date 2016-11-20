@@ -1,0 +1,17 @@
+定位：固定宽度居中：
+法一：
+#container{
+	width:960px;
+	margin:0 auto;
+}
+
+因为chrome和Firefox margin左右不为0,现在覆盖为auto
+
+法二：
+
+#container{
+	width:960px;
+	position:relative;
+	left:50%;（相对于父元素（body）50%处）
+	marign-left:-480px;(强行拉回一半	)
+	}

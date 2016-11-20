@@ -1,0 +1,116 @@
+1、如果清除图片下方空白像素？
+	img{display:block;}
+	img{vertical-align:top;}
+	#test{font-size:0;line-height:0;}
+	#text 为img的父元素
+2、如何让文本垂直对齐文本输入框？
+	input{vertical-align:middle;}
+
+3、如何让单行文本在容器中垂直居中？
+	#test{height:20px;line-height:20px;}
+
+4、如何使文本移除边界强制在一行内显示？
+	#text{white-space:nowrap;}
+
+5、如何使文本溢出边界显示为省略号？
+	#test{white-space:nowrap;text-overflow:ellipsis;overflow:hiddlen}
+
+6、如何使连续的长字符串自动换行？
+	#test{word-wrap:break-word;}
+	word-wrap的break-world值允许单词内换行
+
+7、如何清除浮动？
+	#test:after{display:block;clear:both;content:"";height:0;visibility:hidden;}
+
+8、如何将鼠标光标定义为手型？
+	#{cursor:pointer;}
+
+如何让未知尺寸的图片在已知宽高的容器内水平垂直居中？
+方法：
+#test{display:table-cell;*display:block;*position:relative;width:200px;height:200px;text-align:center;vertical-align:middle;}
+#test p{*position:absolute;*top:50%;*left:50%;margin:0;}
+#test p img{*position:relative;*top:-50%;*left:-50%;vertical-align:middle;}
+#test是img的祖父节点，p是img的父节点。
+
+
+如何让某个元素距离窗口上右下左4边各10像素？
+方法：
+html,body{height:100%;margin:0;}
+html{_padding:10px;}
+#test{position:absolute;top:10px;right:10px;bottom:10px;left:10px;_position:static;_height:100%;}
+
+
+
+如何去掉超链接的虚线框？
+方法：
+a{outline:none;}
+IE7及更早浏览器由于不支持outline属性，需要通过js的blur()方法来实现，如<a onfocus="this.blur();"...
+
+
+如何容器透明，内容不透明？
+方法1：
+.outer{width:200px;height:200px;background:#000;filter:alpha(opacity=20);opacity:.2;}
+.inner{width:200px;height:200px;margin-top:-200px;}
+
+<div class="outer"><!--我是透明的容器--></div>
+<div class="inner">我是不透明的内容</div>
+
+原理是容器层与内容层并级，容器层设置透明度，内容层通过负margin或者position绝对定位等方式覆盖到容器层上
+
+
+为什么容器的背景色没显示出来？为什么容器无法自适应内容高度？
+方法：
+清除浮动，方法请参考本页第9条
+通常出现这样的情况都是由于没有清除浮动而引起的，所以Debug时应第一时间想到是否有未清除浮动的地方
+
+
+标准模式Standard mode和怪异模式Quirks mode下的盒模型区别？
+方法：
+标准模式下：Element width = width + padding + border
+怪异模式下：Element width = width
+
+如何解决列表中list-style-image不能精准定位的问题？
+方法：
+不使用list-style-image来定义列表项目标记符号，而用background-image来代替，并通过background-position来进行定位
+
+
+
+
+为什么2个相邻div的margin只有1个生效？
+
+简单列举几点注意事项: 
+　外边距合并只出现在块级元素上； 
+　浮动元素不会和相邻的元素产生外边距合并； 
+　绝对定位元素不会和相邻的元素产生外边距合并； 
+　内联块级元素间不会产生外边距合并； 
+　根元素间不会不会产生外边距合并（如html与body间）； 
+　设置了属性overflow且值不为visible的块级元素不会与它的子元素发生外边距合并；
+
+
+以图换字的几种方法及优劣分析
+
+思路1：使用text-indent的负值，将内容移出容器
+.test1{width:200px;height:50px;text-indent:-9999px;background:#eee url(*.png) no-repeat;}
+
+<div class="test">以图换字之内容负缩进法</div>
+该方法优点在于结构简洁，不理想的地方：1.由于使用场景不同，负缩进的值可能会不一样，不易抽象成公用样式；2.当该元素为链接时，在非IE下虚线框将变得不完整；3.如果该元素被定义为内联级或者内联块级，不同浏览器下会有较多的差异
+
+思路2：使用display:none或visibility:hidden将内容隐藏；
+.test{width:200px;height:50px;background:#eee url(*.png) no-repeat;}
+.test span{visibility:hidden;/* 或者display:none */}
+
+<div class="test"><span>以图换字之内容隐藏法</span></div>
+该方法优点在于兼容性强并且容易抽象成公用样式，缺点在于结构较复杂
+
+思路3：使用padding或者line-height将内容挤出容器之外；
+.test{overflow:hidden;width:200px;height:0;padding-top:50px;background:#eee url(*.png) no-repeat;}
+.test{overflow:hidden;width:200px;height:50px;line-height:50;background:#eee url(*.jpg) no-repeat;}
+
+<div class="test">以图换字之内容排挤法</div>
+该方法优点在于结构简洁，缺点在于：1.由于使用场景不同，padding或line-height的值可能会不一样，不易抽象成公用样式；2.要兼容IE5.5及更早浏览器还得hack
+
+思路4：使用超小字体和文本全透明法；
+.test{overflow:hidden;width:200px;height:50px;font-size:0;line-height:0;color:rgba(0,0,0,0);background:#eee url(*.png) no-repeat;}
+
+<div class="test">以图换字之超小字体+文本全透明法</div>
+该方法结构简单易用，推荐使用	

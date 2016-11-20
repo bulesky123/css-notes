@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>magin重叠问题</title>
+	<style type="text/css">
+		.son1{
+			background:#090;
+			width:200px;
+			height:200px;
+			margin:50px 0;
+		}
+		.son2{
+			background:#909;
+			width:200px;
+			height:200px;
+			margin:50px 0;
+		}
+		.bfc{
+			overflow: auto;
+			zoom:1;
+			/*display: inline-block;*/
+			/* padding:1px;
+			zoom:1; */
+
+		}
+	</style>
+</head>
+<body>
+	<div class="son1"></div>
+	<div class="bfc">
+		<div class="son2"></div>
+	</div>
+</body>
+</html>

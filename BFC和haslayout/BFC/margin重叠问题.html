@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>margin重叠问题</title>
+	<style type="text/css">
+		.bfc{
+			/*display:inline-block;*/  /*所有浏览器都解决*/
+			overflow: auto;/*解决高版本 需要与下面的结合*/
+			zoom: 1;  /*解决的是IE6  即设置的haslayout*/
+		}
+		.son1{
+			width:200px;
+			height:200px;
+			background:#909;
+			margin:50px 0;
+		}
+		.son2{
+			background:#090;
+			width:200px;
+			height:200px;
+			margin:50px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="bfc">
+		<div class="son1"></div>
+	</div>
+	<div class="son2"></div>
+</body>
+</html>

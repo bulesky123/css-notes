@@ -1,0 +1,60 @@
+字体：font-family
+文字大小：font-size
+文字颜色：color
+文字粗细：font-weight
+斜体：font-style
+下划线：text-decoration
+英文字母大小写：text-transform
+段落水平对齐：text-align
+垂直对齐：vertical-align
+行间距：line-height
+字间距：letter-spacing
+浮动：float
+
+边框：
+border-style
+border-color
+border-width
+border-top
+border-left
+border-right
+border-bottom
+
+
+background-color:transparent 背景透明
+background-image
+background-repeat
+background-attachment
+background-position
+
+
+border-collapse:collapse     边框是否重叠
+
+属性：scope:col/rows
+
+a:link
+a:visited
+a:active
+a:hover
+
+鼠标指针效果：
+cursor：pointer、hand
+
+padding:
+margin
+
+块级元素之间的距离=上边元素的margin-botttom与下边元素的margin-top取大着
+
+行内元素之间的距离=左边元素的margin-right+右边元素的margin-left
+
+
+顺序：font-style |  font-weight | font-size | line-height | font-family
+
+例如:.font{font:italic bold 12px/1.5em arial,verdana;}
+   注意font-size/line-height必须有/
+
+盒图的实际宽度：
+
+content+padding-left+padding-right+border-left+border-right
+
+width+padding-left+padding-right+border-left+border-right

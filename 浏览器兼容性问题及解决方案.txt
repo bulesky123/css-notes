@@ -1,0 +1,37 @@
+pc端（大部分是IE6/7）
+
+1.什么是浏览器兼容性问题?
+ 答:同一个网页在不同浏览器显示效果不同。
+   
+
+2.回顾知识点:
+  --浏览器内核:不同内核对w3c标准支持有不同，尤其是早期版本，现在基本都支持w3c标准
+        --trident webkit gecko
+  --主流浏览器:
+    IE6/7/8/9/10/11 chrome safari firefox 
+
+3.浏览器兼容性产生的原因:
+   --同一个标记在不同浏览器或同一浏览器的不同版本默认样式不同 
+      --举例:body ie6/7 margin:15px 10; 其他浏览器8px
+      --举例:ul IE6/7 margin-left不为零；其他浏览器padding-left不为零
+   
+   --IE6本身的bug(大部分)精通
+   --IE老浏览器IE6/7和其他浏览器不同
+   --css本身bug
+      --举例:img 下面3px bug 解决vertical-align:top
+
+
+4.浏览器兼容性解决方案
+  --覆盖浏览器默认样式
+  --IE6bug专门解决方法
+  --针对不同IE版本使用
+        --css hack
+           （1） * 只有IE6/7支持
+           （2）_只有IE6支持
+        --ie条件注释
+  --针对特殊bug
+       --BFC
+       --haslayout(IE中BFC)
+
+5.提升css级别
+  !important;只有IE6不支持

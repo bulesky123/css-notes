@@ -1,0 +1,41 @@
+css兼容（终于下定决心自己总结了）
+
+行内元素间隔问题BUG:
+产生原因：由于换行符，tab制表符、空格导致，（注意：只有行内元素才有这BUG）
+解决方法：1）元素写成一行。2）设置font-size:0;
+
+1.就是ie6双倍边距的问题，在使用了float的情况下，不管是向左还是向右都会出现双倍，最简单的解决方法就是用display:inline;加到css里面去。
+ 
+2.文字本身的大小不兼容。同样是font-size:14px的宋体文字，在不同浏览器下占的空间是不一样的，ie下实际占高16px，下留白3px，ff下实际占高17px，上留白1px，下留白3px，opera下就更不一样了。解决方案：给文字设定 line-height 。确保所有文字都有默认的 line-height 值。这点很重要，在高度上我们不能容忍1px 的差异。
+ 
+3. ff下容器高度限定，即容器定义了height之后，容器边框的外形就确定了，不会被内容撑大，而ie下是会被内容撑大，高度限定失效。所以不要轻易给容器定义height。
+ 
+4. 还讨论内容撑破容器问题，横向上的。如果float 容器未定义宽度，ff下内容会尽可能撑开容器宽度，ie下则会优先考虑内容折行。故，内容可能撑破的浮动容器需要定义width。
+ 
+5. 浮动的清除，ff下不清除浮动是不行的。
+ 
+6. mirrormargin bug，当外层元素内有float元素时，外层元素如定义margin-top:14px，将自动生成margin-bottom:14px。padding也会出现类似问题，都是ie6下的特产，该类bug 出现的情况较为复杂，远不只这一种出现条件，还没系统整理。解决方案：外层元素设定border 或 设定float。
+ 
+7. 吞吃现象，限于篇幅，我就不展开了。还是ie6，上下两个div，上面的div设置背景，却发现下面没有设置背景的div 也有了背景，这就是吞吃现象。对应上面的背景吞吃现象，还有滚动下边框缺失的现象。解决方案：使用zoom:1。这个zoom好象是专门为解决ie6 bug而生的。
+ 
+8. 注释也能产生bug~~~“多出来的一只猪。”这是前人总结这个bug使用的文案，ie6的这个bug 下，大家会在页面看到猪字出现两遍，重复的内容量因注释的多少而变。解决方案：用“<!–[if !IE]> picRotate start <![endif]–>”方法写注释。
+ 
+9. <li/>里加 float <div/>，这是一个典型的，棘手的兼容问题，希望引起大家正视 ，给li 不同的属性会有不同的解释效果，ff下的解释稍可理解，ie6下的解释会让你摸不着头脑，由于问题的复杂性，将另起一文专门讨论该问题。在《ul使用心得》一文里有相关成果，却没给出问题解决的过程。
+ 
+10. img下的留白。解决方案：给img设定 display:block。
+ 
+11. 失去line-height。<div style=”line-height:20px”><img />文字</div>，很遗憾，在ie6下单行文字 line-height 效果消失了。。。，原因是<img />这个inline-block元素和inline元素写在一起了。解决方案：让img 和文字都 float起来。
+ 
+12. 链接的hover状态。a:hover img{width:300px} 我们想让鼠标hover时，链接里包含的图片宽度变化，可惜在ie6下无效，ie7、ff下有效。
+ 
+13. 非链接的hover状态。div:hover{} 这样的样式ie6是不认的，在ie7、ff下才有效果。
+ 
+14. ie下overflow:hidden对其下的绝对层position:absolute或者相对层position:relative无效。解决方案：给overflow:hidden加position:relative或者position:absolute。另，ie6支持overflow-x或者overflow-y的特性，ie7、ff不支持。
+ 
+15. ie6下严重的bug，float元素如没定义宽度，内部如有div定义了height或zoom:1，这个div就会占满一整行，即使你给了宽度。float元素如果作为布局用或复杂的容器，都要给个宽度的。
+ 
+16. ie6下的bug，绝对定位的div下包含相对定位的div，如果给内层相对定位的div高度height具体值，内层相对层将具有100%的width值，外层绝对层将被撑大。解决方案给内层相对层float属性。
+ 
+17. ie6下的bug，<head></head>内有<base target=”_blank”/>的情况下，position:relative层下的float层内文字无法选中。
+ 
+18. 终于来了个ff的缺点。width:100%这个东西在ie里用很方便，会向上逐层搜索width值，忽视浮动层的影响，ff下搜索至浮动层结束，如此，只能给中间的所有浮动层加width:100%才行，累啊。opera这点倒学乖了跟了ie。
